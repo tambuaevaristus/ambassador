@@ -8,11 +8,8 @@ import (
 
 func main() {
 
-	_, err := gorm.Open(mysql.Open("root:root@tcp(db:3306)/ambassador"), &gorm.Config{})
-
-	if err != nil {
-		panic("Could not connect to database")
-	}
+	database.Connect()
+	database.AutoMigrate()
 	
     app := fiber.New()
 
